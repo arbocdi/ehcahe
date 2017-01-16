@@ -1,0 +1,32 @@
+<!--
+* updateCheck - an optional boolean flag specifying whether this CacheManager should check
+for new versions of Ehcache over the Internet.  If not specified, updateCheck="true"
+-->
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false">
+    
+
+<!-- 
+    name - имя кеша, можно по нему получить кеш из CacheManager
+    
+    maxEntriesLocalHeap - максимальное число хранимых в памяти элементов
+    
+    eternal - элементы не удаляются со временем?
+    
+    timeToIdleSeconds - интервал м\у последним доступом к элементу и его
+    удалением из кеша, 0 по умолчанию - не удалять
+    
+    timeToLiveSeconds - интервал времени м\у созданием элемента в кеше
+    и удалением его из кеша, 0 по умолчанию
+    
+    memoryStoreEvictionPolicy - алгоритм удаления элементов из кеша,
+    LFU = least frequently used
+-->
+    <cache name="cache1" 
+           maxEntriesLocalHeap="10000"
+           eternal="false" 
+           timeToIdleSeconds="300" 
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU">
+    </cache>
+</ehcache>
